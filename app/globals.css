@@ -1,0 +1,311 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --crimson: #89172E;
+  --crimson-deep: #5C0A1C;
+  --dark: #080309;
+  --dark-card: #0F0512;
+  --dark-surface: #150A18;
+  --cream: #F2E8DC;
+  --cream-dim: #BFB3A5;
+  --gold: #C9A96E;
+  --gold-bright: #E8C98A;
+  --gold-dim: #8A7050;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background: #080309;
+  color: #F2E8DC;
+  overflow-x: hidden;
+  font-family: var(--font-cormorant), serif;
+}
+
+/* ── Scrollbar ─────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: #080309; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #89172E, #C9A96E);
+  border-radius: 2px;
+}
+
+/* ── Grain overlay ─────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── Custom keyframes ──────────────────────── */
+@keyframes drawCircle {
+  from { stroke-dashoffset: 1000; opacity: 0; }
+  to   { stroke-dashoffset: 0;    opacity: 1; }
+}
+
+@keyframes drawCircle2 {
+  from { stroke-dashoffset: 700; opacity: 0; }
+  to   { stroke-dashoffset: 0;   opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-18px) rotate(4deg); }
+  66%       { transform: translateY(-9px) rotate(-3deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes expandDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-orb {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.1); }
+}
+
+@keyframes rotateRing {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Utility classes ───────────────────────── */
+.font-display  { font-family: var(--font-playfair), serif; }
+.font-body     { font-family: var(--font-cormorant), serif; }
+
+.shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    var(--gold-bright) 35%,
+    #fff8e6 50%,
+    var(--gold-bright) 65%,
+    var(--gold) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
+
+.shimmer-cream {
+  background: linear-gradient(
+    90deg,
+    var(--cream-dim) 0%,
+    var(--cream) 40%,
+    #ffffff 50%,
+    var(--cream) 65%,
+    var(--cream-dim) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 6s linear infinite;
+}
+
+.circle-draw-1 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawCircle 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.3s;
+}
+
+.circle-draw-2 {
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation: drawCircle2 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards 1s;
+}
+
+.hero-title {
+  animation: fadeUp 1s ease forwards 1.6s;
+  opacity: 0;
+}
+
+.hero-subtitle {
+  animation: fadeUp 1s ease forwards 2s;
+  opacity: 0;
+}
+
+.hero-tagline {
+  animation: fadeUp 1s ease forwards 2.4s;
+  opacity: 0;
+}
+
+.hero-scroll {
+  animation: fadeIn 1s ease forwards 3s;
+  opacity: 0;
+}
+
+.nav-reveal {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* ── Card glass effect ─────────────────────── */
+.menu-card {
+  background: linear-gradient(135deg, rgba(21, 10, 24, 0.95) 0%, rgba(15, 5, 18, 0.98) 100%);
+  border: 1px solid rgba(137, 23, 46, 0.18);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(201, 169, 110, 0.03) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-card:hover {
+  border-color: rgba(201, 169, 110, 0.28);
+  box-shadow: 0 8px 40px rgba(137, 23, 46, 0.2), 0 0 0 1px rgba(201, 169, 110, 0.08);
+  transform: translateY(-2px);
+}
+
+.menu-card:hover::before {
+  opacity: 1;
+}
+
+.menu-card.is-open {
+  border-color: rgba(201, 169, 110, 0.35);
+  box-shadow: 0 12px 60px rgba(137, 23, 46, 0.28), 0 0 0 1px rgba(201, 169, 110, 0.12);
+}
+
+/* ── Expanded details ──────────────────────── */
+.expand-panel {
+  animation: expandDown 0.4s ease forwards;
+}
+
+/* ── Section reveal ────────────────────────── */
+.section-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Floating orbs ─────────────────────────── */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.orb-crimson {
+  background: radial-gradient(circle, rgba(137,23,46,0.35) 0%, transparent 70%);
+  animation: pulse-orb 8s ease-in-out infinite;
+}
+
+.orb-gold {
+  background: radial-gradient(circle, rgba(201,169,110,0.2) 0%, transparent 70%);
+  animation: pulse-orb 10s ease-in-out infinite 2s;
+}
+
+/* ── Category nav pills ────────────────────── */
+.cat-pill {
+  font-family: var(--font-cormorant), serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  color: rgba(242, 232, 220, 0.55);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  background: transparent;
+}
+
+.cat-pill:hover {
+  border-color: rgba(201, 169, 110, 0.45);
+  color: var(--gold);
+}
+
+.cat-pill.active {
+  background: rgba(137, 23, 46, 0.5);
+  border-color: rgba(201, 169, 110, 0.5);
+  color: var(--gold-bright);
+  box-shadow: 0 0 20px rgba(137, 23, 46, 0.35);
+}
+
+/* ── Badge ─────────────────────────────────── */
+.badge-signature {
+  background: linear-gradient(90deg, rgba(137,23,46,0.8), rgba(92,10,28,0.9));
+  border: 1px solid rgba(201,169,110,0.4);
+  color: var(--gold-bright);
+  font-family: var(--font-cormorant), serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 3px;
+}
+
+/* ── Ingredients dots ──────────────────────── */
+.ingredient-dot::before {
+  content: '◆';
+  color: var(--gold);
+  font-size: 0.4rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* ── Decorative line ───────────────────────── */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold) 70%, transparent 100%);
+}
+
+.gold-line-left {
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+}
+
+/* ── Footer ────────────────────────────────── */
+.footer-bg {
+  background: linear-gradient(180deg, #080309 0%, #0D0410 60%, #080309 100%);
+  border-top: 1px solid rgba(137, 23, 46, 0.25);
+}
+
+/* ── Responsive nav scroll ─────────────────── */
+.nav-scroll::-webkit-scrollbar { display: none; }
+.nav-scroll { -ms-overflow-style: none; scrollbar-width: none; }
