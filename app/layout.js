@@ -1,4 +1,4 @@
-import { Playfair_Display, Cormorant_Garamond } from 'next/font/google'
+import { Playfair_Display, Outfit } from 'next/font/google'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -9,23 +9,22 @@ const playfair = Playfair_Display({
   display: 'swap',
 })
 
-const cormorant = Cormorant_Garamond({
+const outfit = Outfit({
   subsets: ['latin'],
-  variable: '--font-cormorant',
+  variable: '--font-outfit',
   weight: ['300', '400', '500', '600', '700'],
-  style: ['normal', 'italic'],
   display: 'swap',
 })
 
 export const metadata = {
   title: 'Circle Restaurant & Lounge — Benin City',
-  description: 'An unparalleled dining experience in the heart of Benin City. Where luxury meets cuisine.',
+  description: 'An unparalleled dining experience in the heart of Benin City. Where luxury meets the future of cuisine.',
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${cormorant.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${playfair.variable} ${outfit.variable} bg-sexy-white`}>
+      <body className="antialiased">{children}</body>
     </html>
   )
 }

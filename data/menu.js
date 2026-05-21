@@ -19,6 +19,7 @@ export const menuData = [
         pairing: 'Château d\'Yquem Sauternes 2018 or a glass of Late Harvest Riesling',
         dietary: null,
         spice: null,
+        image: '/images/foie_gras.png',
       },
       {
         id: 's2',
@@ -273,6 +274,7 @@ export const menuData = [
         pairing: 'Opus One or a Stag\'s Leap Cabernet Sauvignon',
         dietary: null,
         spice: null,
+        image: '/images/tomahawk_ribeye.png',
       },
       {
         id: 'g2',
@@ -301,6 +303,7 @@ export const menuData = [
         pairing: 'White Burgundy Chassagne-Montrachet or aged Champagne',
         dietary: null,
         spice: null,
+        image: '/images/lobster_thermidor.png',
       },
       {
         id: 'g4',
@@ -353,6 +356,7 @@ export const menuData = [
         pairing: 'White Burgundy Puligny-Montrachet or aged Barolo',
         dietary: 'vegetarian',
         spice: null,
+        image: '/images/truffle_tagliatelle.png',
       },
       {
         id: 'p2',
@@ -555,6 +559,7 @@ export const menuData = [
         pairing: 'Ideal aperitif; pairs with the burrata and heirloom tomato',
         dietary: null,
         spice: null,
+        image: '/images/midnight_negroni.png',
       },
       {
         id: 'c6',
