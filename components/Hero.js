@@ -26,7 +26,7 @@ export default function Hero({ onExplore }) {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-6 flex flex-col items-center w-full"
         >
           <div className="w-12 h-[1px] bg-crimson/30 mb-6" />
@@ -41,7 +41,7 @@ export default function Hero({ onExplore }) {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-sm md:text-base text-charcoal-light max-w-md font-light leading-relaxed mb-10 md:mb-12 px-4"
         >
           Where the future of luxury dining meets the soul of culinary mastery. Every detail curated for perfection.
@@ -50,7 +50,7 @@ export default function Hero({ onExplore }) {
         <motion.button
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           onClick={onExplore}
           className="group relative flex items-center justify-center gap-4 px-8 py-4 bg-charcoal hover:bg-charcoal-light text-xs tracking-[0.2em] uppercase text-white transition-all duration-500 overflow-hidden w-full max-w-[280px] sm:w-auto shadow-luxury-soft"
         >
@@ -64,7 +64,7 @@ export default function Hero({ onExplore }) {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
+        transition={{ delay: 0.6, duration: 0.8 }}
         className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20"
       >
         <div className="w-[1px] h-10 md:h-12 bg-gradient-to-b from-crimson/30 to-transparent overflow-hidden">

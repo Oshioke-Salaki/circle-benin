@@ -23,11 +23,11 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(137, 23, 46, 0.2);
+    background: rgba(128, 0, 32, 0.2);
     border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(137, 23, 46, 0.6);
+    background: rgba(128, 0, 32, 0.6);
   }
 }
 
@@ -36,7 +36,7 @@
     @apply bg-white/60 backdrop-blur-xl border border-charcoal/5 shadow-luxury-soft;
   }
   .text-gradient-crimson {
-    background: linear-gradient(135deg, #AB1D3A 0%, #89172E 50%, #4A0815 100%);
+    background: linear-gradient(135deg, #A6002A 0%, #800020 50%, #4D0013 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

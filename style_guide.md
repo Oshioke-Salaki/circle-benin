@@ -12,7 +12,7 @@ The color system uses deep, rich tones balanced by stark contrasts.
 
 ### Primary Colors
 - **Obsidian Black (`#050505`)**: The core background. Creates infinite depth and contrast.
-- **Deep Crimson (`#89172E`)**: The primary brand and accent color. Used for active states, primary buttons, borders, and subtle glows.
+- **Deep Crimson / Burgundy (`#800020`)**: The primary brand and accent color. Used for active states, primary buttons, borders, and subtle glows.
 
 ### Secondary / Text Colors
 - **White (`#FFFFFF`)**: Secondary brand color and primary text color for maximum readability against the dark background.

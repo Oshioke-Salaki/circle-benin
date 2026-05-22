@@ -8,9 +8,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        crimson: '#89172E',
-        'crimson-deep': '#4A0815',
-        'crimson-bright': '#AB1D3A',
+        crimson: '#800020',
+        'crimson-deep': '#4D0013',
+        'crimson-bright': '#A6002A',
         'sexy-white': '#FAFAFA', // A soft, luxurious off-white
         'sexy-cream': '#F5F2F0',
         charcoal: '#1A1A1A',
@@ -46,7 +46,7 @@ module.exports = {
         },
       },
       boxShadow: {
-        'crimson-glow': '0 10px 40px -10px rgba(137, 23, 46, 0.2)',
+        'crimson-glow': '0 10px 40px -10px rgba(128, 0, 32, 0.2)',
         'luxury-soft': '0 20px 40px -15px rgba(0, 0, 0, 0.05)',
       },
     },
