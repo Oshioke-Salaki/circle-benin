@@ -47,6 +47,7 @@ export const menuData = [
         price: '₦15,000',
         shortDesc: 'Sauteed Spicy Calamari and shrimps, served with garlic bread.',
         description: 'Sauteed Spicy Calamari and shrimps, served with garlic bread.',
+        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779655032/seafoodtapas_f8ewuo.jpg',
       },
       {
         id: 'cg1',
@@ -88,6 +89,7 @@ export const menuData = [
         badge: 'Circle Signature',
         shortDesc: 'Classic Asun Jollof Rice',
         description: 'A spicy and flavorful classic Asun Jollof Rice combination.',
+        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779655030/asun-rice_mrn1ni.jpg',
       },
       {
         id: 'm3',

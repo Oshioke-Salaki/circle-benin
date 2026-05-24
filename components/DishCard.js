@@ -18,14 +18,13 @@ export default function DishCard({ item, onClick }) {
             src={item.image}
             alt={item.name}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="font-display text-4xl text-charcoal/5 font-bold tracking-tighter">CIRCLE</span>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-90" />
 
         {/* Price tag */}
         <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-sm border border-charcoal/5 shadow-sm">

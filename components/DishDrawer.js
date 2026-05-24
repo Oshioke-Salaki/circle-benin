@@ -52,8 +52,8 @@ export default function DishDrawer({ item, isOpen, onClose }) {
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-80 z-0" />
                 )}
                 
-                {/* Gradient overlay to blend image with content */}
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-black/10" />
+                {/* Gradient overlay to blend image with content and provide text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
                 <div className="absolute bottom-6 left-6 right-6 z-10">
                   {item.badge && (
@@ -61,10 +61,10 @@ export default function DishDrawer({ item, isOpen, onClose }) {
                       {item.badge}
                     </span>
                   )}
-                  <h2 className="font-display text-3xl md:text-4xl font-bold text-charcoal mb-2 leading-tight drop-shadow-sm">
+                  <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-2 leading-tight drop-shadow-lg">
                     {item.name}
                   </h2>
-                  <p className="font-display text-xl text-crimson font-medium">{item.price}</p>
+                  <p className="font-display text-xl text-white/90 font-medium drop-shadow-md">{item.price}</p>
                 </div>
               </div>
 
