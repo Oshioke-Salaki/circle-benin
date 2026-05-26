@@ -12,6 +12,7 @@ export const menuData = [
         price: '₦15,000',
         shortDesc: 'Char-grilled Chicken, cheddar cheese, caramelized onion served with guacamole',
         description: 'Char-grilled Chicken, cheddar cheese, caramelized onion served with guacamole.',
+        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826038/chicken-quesadilla_f6t0na.jpg',
       },
       {
         id: 's2',
@@ -98,6 +99,7 @@ export const menuData = [
         badge: 'Circle Signature',
         shortDesc: 'Our signature Circle Burger',
         description: 'Our signature Circle Burger, crafted for the ultimate taste.',
+        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826444/circle-burger_e6juwq.jpg',
       },
       {
         id: 'm4',
@@ -114,6 +116,7 @@ export const menuData = [
         badge: 'Poultry',
         shortDesc: 'Deep fried Chicken served with French fries, coleslaw.',
         description: 'Deep fried Chicken served with French fries, coleslaw.',
+        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826357/crispy-chicken_jzbdux.jpg',
       },
       {
         id: 'p2',
@@ -122,6 +125,7 @@ export const menuData = [
         badge: 'Poultry',
         shortDesc: 'Oven roasted Half chicken, tossed in tomato sauce, served with Jollof rice',
         description: 'Oven roasted Half chicken, tossed in tomato sauce, served with Jollof rice.',
+        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779825981/half-grilled-chicken_gg7iji.jpg',
       },
       {
         id: 'p3',
@@ -138,6 +142,7 @@ export const menuData = [
         badge: 'Seafood',
         shortDesc: 'Whole grilled Croaker fish with signature pepper sauce, served with yam fries',
         description: 'Whole grilled Croaker fish with signature pepper sauce, served with yam fries.',
+        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826297/grilled-croaker_z7gnti.jpg',
       },
       {
         id: 'sf2',
@@ -171,6 +176,7 @@ export const menuData = [
         badge: 'Pasta',
         shortDesc: 'Spaghetti pasta tossed in spicy tomato sauce, mixed with minced beef or chicken',
         description: 'Spaghetti pasta tossed in spicy tomato sauce, mixed with minced beef or chicken.',
+        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779825958/spaghetti-bolon_sd3mip.jpg',
       },
       {
         id: 'pa2',
