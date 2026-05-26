@@ -270,6 +270,7 @@ export const menuData = [
     hasSubMenu: true,
     items: [
       // Imaged Cocktails
+      { id: 'dr-skull', name: 'Skull Signature Cocktail', price: '₦15,000', badge: 'Cocktails', shortDesc: 'A luxurious and exciting surprise...', description: 'A special signature cocktail wrapped in mystery. Expect a surprise, crafted in a luxurious and exciting way.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779829956/skull_dhtfwo.jpg' },
       { id: 'dr-pina', name: 'Pina Colada', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Classic Pina Colada', description: 'A refreshing and creamy tropical blend of rum, coconut cream, and pineapple juice.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826932/Pinnacollada_xakgxm.jpg' },
       { id: 'dr-pornstar', name: 'Pornstar Martini', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Passion-fruit-flavored cocktail', description: 'A delicious passion-fruit-flavored cocktail made with vanilla-flavored vodka, Passoã, passion fruit juice, and lime juice.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826971/pornstarmartin_msjn5c.jpg' },
       
@@ -294,7 +295,7 @@ export const menuData = [
       { id: 'c18', name: 'Discretion', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Discretion', description: 'Discretion cocktail.' },
 
       // Mocktails
-      { id: 'm1', name: 'Frozen Strawberry Daiquiri', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Frozen Strawberry Daiquiri', description: 'Frozen Strawberry Daiquiri mocktail.' },
+      { id: 'm1', name: 'Frozen Strawberry Daiquiri', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Frozen Strawberry Daiquiri', description: 'Frozen Strawberry Daiquiri mocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779830025/Frozen_Strawberry_daiquiri_le9kqw.jpg' },
       { id: 'm2', name: 'Virgin Colada', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Virgin Colada', description: 'Virgin Colada mocktail.' },
       { id: 'm3', name: 'Chapman', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Classic Chapman', description: 'Classic Chapman mocktail.' },
       { id: 'm4', name: 'Virgin Blue Lagoon', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Virgin Blue Lagoon', description: 'Virgin Blue Lagoon mocktail.' },
