@@ -1,17 +1,25 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import DishCard from './DishCard'
 
 export default function MenuSection({ section, sectionRef, onDishClick }) {
-  const [activeSubMenu, setActiveSubMenu] = useState('All')
-
   const subCategories = section.hasSubMenu 
-    ? ['All', ...Array.from(new Set(section.items.map(item => item.badge).filter(Boolean)))]
+    ? Array.from(new Set(section.items.map(item => item.badge).filter(Boolean)))
     : []
 
-  const filteredItems = section.hasSubMenu && activeSubMenu !== 'All'
+  const [activeSubMenu, setActiveSubMenu] = useState(
+    subCategories.length > 0 ? subCategories[0] : null
+  )
+
+  useEffect(() => {
+    if (section.hasSubMenu && subCategories.length > 0 && !subCategories.includes(activeSubMenu)) {
+      setActiveSubMenu(subCategories[0])
+    }
+  }, [section, activeSubMenu])
+
+  const filteredItems = section.hasSubMenu && activeSubMenu
     ? section.items.filter(item => item.badge === activeSubMenu)
     : section.items
 
