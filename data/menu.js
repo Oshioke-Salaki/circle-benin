@@ -270,6 +270,7 @@ export const menuData = [
     hasSubMenu: true,
     items: [
       // Imaged Cocktails
+      { id: 'dr-blue-lady', name: 'Blue Lady Cocktail', price: '₦10,000', badge: 'Cocktails', shortDesc: 'A vibrant Blue Lady', description: 'A vibrant, refreshing and visually striking Blue Lady cocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779889654/Blue_Lady_hkesyl.jpg' },
       { id: 'dr-skull', name: 'Skull Signature Cocktail', price: '₦15,000', badge: 'Cocktails', shortDesc: 'A luxurious and exciting surprise...', description: 'A special signature cocktail wrapped in mystery. Expect a surprise, crafted in a luxurious and exciting way.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779829956/skull_dhtfwo.jpg' },
       { id: 'dr-pina', name: 'Pina Colada', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Classic Pina Colada', description: 'A refreshing and creamy tropical blend of rum, coconut cream, and pineapple juice.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826932/Pinnacollada_xakgxm.jpg' },
       { id: 'dr-pornstar', name: 'Pornstar Martini', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Passion-fruit-flavored cocktail', description: 'A delicious passion-fruit-flavored cocktail made with vanilla-flavored vodka, Passoã, passion fruit juice, and lime juice.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826971/pornstarmartin_msjn5c.jpg' },
@@ -328,7 +329,35 @@ export const menuData = [
     label: 'Spirits',
     subtitle: 'Premium Selection',
     description: 'Exclusive whiskeys, fine wines, and premium spirits.',
+    hasSubMenu: true,
     items: [
+      {
+        id: 'sp-b52',
+        name: 'B52 Shot',
+        price: '₦5,000',
+        badge: 'Shot',
+        shortDesc: 'A classic layered B52 shot',
+        description: 'A classic visually stunning layered B52 shot.',
+        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779889721/B52_cmkt84.jpg',
+      },
+      {
+        id: 'sp-alien-brain',
+        name: 'Alien Brain Shot',
+        price: '₦5,000',
+        badge: 'Shot',
+        shortDesc: 'A thrilling and unique shot',
+        description: 'A thrilling, unique and visually stunning Alien Brain shot.',
+        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779889561/Alien_Brain_ellgdc.jpg',
+      },
+      {
+        id: 'sp-love-drop',
+        name: 'Love Lemon Drop Shot',
+        price: '₦5,000',
+        badge: 'Shot',
+        shortDesc: 'A refreshing sweet & sour shot',
+        description: 'A refreshing and sweet Love Lemon Drop shot.',
+        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779889430/love-lemon-drop_lighqr.jpg',
+      },
       {
         id: 'sp1',
         name: 'Premium Whiskey',
