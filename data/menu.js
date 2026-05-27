@@ -270,6 +270,7 @@ export const menuData = [
     hasSubMenu: true,
     items: [
       // Imaged Cocktails
+      { id: 'dr-rainbow', name: 'Rainbow Cocktail', price: '₦10,000', badge: 'Cocktails', shortDesc: 'A colorful Rainbow Cocktail', description: 'A beautifully colorful and sweet Rainbow Cocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779890041/Rainbow_Cocktail_vfhgqb.jpg' },
       { id: 'dr-blue-lady', name: 'Blue Lady Cocktail', price: '₦10,000', badge: 'Cocktails', shortDesc: 'A vibrant Blue Lady', description: 'A vibrant, refreshing and visually striking Blue Lady cocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779889654/Blue_Lady_hkesyl.jpg' },
       { id: 'dr-skull', name: 'Skull Signature Cocktail', price: '₦15,000', badge: 'Cocktails', shortDesc: 'A luxurious and exciting surprise...', description: 'A special signature cocktail wrapped in mystery. Expect a surprise, crafted in a luxurious and exciting way.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779829956/skull_dhtfwo.jpg' },
       { id: 'dr-pina', name: 'Pina Colada', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Classic Pina Colada', description: 'A refreshing and creamy tropical blend of rum, coconut cream, and pineapple juice.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826932/Pinnacollada_xakgxm.jpg' },
