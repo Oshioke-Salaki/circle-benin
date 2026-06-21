@@ -7,6 +7,22 @@ export const menuData = [
     description: 'A selection of appetizing starters and fresh garden salads.',
     items: [
       {
+        id: 's-butter-yam',
+        name: 'Butter Yam',
+        price: '₦10,000',
+        shortDesc: 'Delicious butter yam',
+        description: 'Delicious butter yam, perfectly cooked and served hot.',
+        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1782012577/butter-yam_os7clp.jpg',
+      },
+      {
+        id: 's-shrimps-temporal',
+        name: 'Shrimps Temporal',
+        price: '₦15,000',
+        shortDesc: 'Crispy fried shrimps temporal',
+        description: 'Crispy fried shrimps temporal served with a side of dipping sauce.',
+        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1782012812/Shrimps_Temporal_kfikix.jpg',
+      },
+      {
         id: 's1',
         name: 'Chicken Quesadilla',
         price: '₦15,000',
@@ -209,6 +225,7 @@ export const menuData = [
         badge: 'Steak',
         shortDesc: 'Grilled Australian T-bone steak served with steak sauce, mashed potato and steamed veggies',
         description: 'Grilled Australian T-bone steak served with steak sauce, mashed potato and steamed veggies.',
+        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1782012751/t-bone_steak_t8bzq3.jpg',
       },
       {
         id: 'st3',
