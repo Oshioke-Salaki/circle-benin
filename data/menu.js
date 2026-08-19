@@ -287,6 +287,7 @@ export const menuData = [
     hasSubMenu: true,
     items: [
       // Imaged Cocktails
+      { id: 'dr-martyr', name: 'Martyr', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Martyr Cocktail', description: 'A unique Martyr cocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1787172297/image_ge1fmr.png' },
       { id: 'dr-rainbow', name: 'Rainbow Cocktail', price: '₦10,000', badge: 'Cocktails', shortDesc: 'A colorful Rainbow Cocktail', description: 'A beautifully colorful and sweet Rainbow Cocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779890041/Rainbow_Cocktail_vfhgqb.jpg' },
       { id: 'dr-blue-lady', name: 'Blue Lady Cocktail', price: '₦10,000', badge: 'Cocktails', shortDesc: 'A vibrant Blue Lady', description: 'A vibrant, refreshing and visually striking Blue Lady cocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779889654/Blue_Lady_hkesyl.jpg' },
       { id: 'dr-skull', name: 'Skull Signature Cocktail', price: '₦15,000', badge: 'Cocktails', shortDesc: 'A luxurious and exciting surprise...', description: 'A special signature cocktail wrapped in mystery. Expect a surprise, crafted in a luxurious and exciting way.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779829956/skull_dhtfwo.jpg' },
@@ -317,7 +318,7 @@ export const menuData = [
       { id: 'm1', name: 'Frozen Strawberry Daiquiri', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Frozen Strawberry Daiquiri', description: 'Frozen Strawberry Daiquiri mocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779830025/Frozen_Strawberry_daiquiri_le9kqw.jpg' },
       { id: 'm2', name: 'Virgin Colada', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Virgin Colada', description: 'Virgin Colada mocktail.' },
       { id: 'm3', name: 'Chapman', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Classic Chapman', description: 'Classic Chapman mocktail.' },
-      { id: 'm4', name: 'Virgin Blue Lagoon', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Virgin Blue Lagoon', description: 'Virgin Blue Lagoon mocktail.' },
+      { id: 'm4', name: 'Virgin Blue Lagoon', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Virgin Blue Lagoon', description: 'Virgin Blue Lagoon mocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1787172347/image_copy_j2x3rm.png' },
       { id: 'm5', name: 'Virgin Mojito', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Virgin Mojito', description: 'Virgin Mojito mocktail.' },
       { id: 'm6', name: 'Shirley Temple', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Shirley Temple', description: 'Shirley Temple mocktail.' },
       { id: 'm7', name: 'Arnold Palmer', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Arnold Palmer', description: 'Arnold Palmer mocktail.' },
