@@ -24,10 +24,10 @@ export default function Footer() {
           <div>
             <h4 className="text-[10px] uppercase tracking-[0.2em] text-crimson mb-5 font-semibold">Location</h4>
             <ul className="space-y-3 text-sm text-charcoal-light font-light">
-              <li>10 Airport Road</li>
-              <li>Benin City, Edo State</li>
-              <li>Nigeria</li>
-              <li className="pt-2 text-crimson font-medium">RSVP: +234 800 CIRCLE 1</li>
+              <li>Circle Restaurant & Lounge</li>
+              <li>Benin City Mall (Shoprite)</li>
+              <li>18 Central Rd., Benin City</li>
+              <li className="pt-2 text-crimson font-medium">RSVP: +234 811 000 0069</li>
             </ul>
           </div>
         </div>
