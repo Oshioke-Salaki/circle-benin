@@ -137,7 +137,7 @@ export const menuData = [
       {
         id: 'p2',
         name: 'Half Grilled Chicken',
-        price: '₦25,000',
+        price: '₦30,000',
         badge: 'Poultry',
         shortDesc: 'Oven roasted Half chicken, tossed in tomato sauce, served with Jollof rice',
         description: 'Oven roasted Half chicken, tossed in tomato sauce, served with Jollof rice.',
@@ -295,6 +295,7 @@ export const menuData = [
       { id: 'dr-pornstar', name: 'Pornstar Martini', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Passion-fruit-flavored cocktail', description: 'A delicious passion-fruit-flavored cocktail made with vanilla-flavored vodka, Passoã, passion fruit juice, and lime juice.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826971/pornstarmartin_msjn5c.jpg' },
       
       // Other Cocktails
+      { id: 'dr-circle-zombie', name: 'Circle Zombie', price: '₦15,000', badge: 'Cocktails', shortDesc: 'Our signature Zombie cocktail', description: 'The Circle signature take on the classic Zombie cocktail.' },
       { id: 'c1', name: 'Mojito', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Classic Mojito', description: 'Classic refreshing Mojito.' },
       { id: 'c2', name: 'Negroni', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Classic Negroni', description: 'Classic Italian Negroni.' },
       { id: 'c3', name: 'Long Island Ice Tea', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Long Island Ice Tea', description: 'Classic Long Island Ice Tea.' },
