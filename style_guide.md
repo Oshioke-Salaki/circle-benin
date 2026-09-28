@@ -1,60 +1,65 @@
-# Circle Restaurant — UI Style Guide
+# Circle Restaurant & Lounge: Style Guide
 
-This document outlines the design system, aesthetics, and component principles for the Circle Restaurant Next.js application following its complete UI overhaul.
+The menu site is a late-night lounge in a browser: obsidian, Circle crimson and off-white, with the circle as the brand shape. Most guests open it on a phone after scanning the table QR code, so every decision starts at phone width.
 
-## 1. Core Aesthetics & Philosophy
-- **Pristine Luxury**: The interface aims for a "made in the future" luxury vibe. It avoids cliché "AI-generated" gradients, relying instead on stark contrasts, precise typography, and dark-mode elegance.
-- **Glassmorphism**: Used sparingly for overlays (like the Sticky Nav and Drawer Close button) to provide depth without clutter.
-- **Cinematic Photography**: Large, high-resolution imagery takes center stage, bathed in moody lighting and subtle zoom animations.
+## Colour
 
-## 2. Color Palette
-The color system uses deep, rich tones balanced by stark contrasts.
+All colours are CSS variables in `app/globals.css`, exposed to Tailwind as `bg`, `surface`, `surface-2`, `ink`, `muted`, `crimson`, `crimson-hover` and `accent`. Use `text-ink/60`, `border-ink/10` and so on for tints so both themes work.
 
-### Primary Colors
-- **Obsidian Black (`#050505`)**: The core background. Creates infinite depth and contrast.
-- **Deep Crimson / Burgundy (`#800020`)**: The primary brand and accent color. Used for active states, primary buttons, borders, and subtle glows.
+| Token | Dark (default) | Light | Use |
+|---|---|---|---|
+| `bg` | `#0B090B` | `#F4F2F2` | Page background |
+| `surface` | `#151215` | `#FCFBFB` | Sheets, cards |
+| `ink` | `#F6F1F2` | `#161013` | Text |
+| `muted` | `#ACA3A8` | `#5E565A` | Descriptions, labels |
+| `crimson` | `#89162D` | `#89162D` | Logo red. Buttons, active pills, the dessert card, the footer. |
+| `crimson-glow` | `#A81E3A` | `#89162D` | Logo red lifted for dark backgrounds: hero rings, header mark, progress line |
+| `accent` | `#EE5C76` | `#89162D` | Crimson for text on the page (prices, group names, the `&`) |
 
-### Secondary / Text Colors
-- **White (`#FFFFFF`)**: Secondary brand color and primary text color for maximum readability against the dark background.
-- **White Dim (`#E0E0E0` to `white/60`)**: Used for secondary text, descriptions, and subtle UI elements.
-- **Translucents**: Used for borders (`border-white/10`), subtle backgrounds (`bg-white/5`), and disabled states.
+Dark is the house default. The header toggle switches to light and remembers the choice.
 
-## 3. Typography
-The typography marries classic elegance with modern minimalism.
+`.on-crimson` re-scopes the tokens so a whole block can sit in logo red with warm-white text (used by the Visit footer and the dessert card).
 
-- **Headings (Display Font)**: *Playfair Display*
-  - Weights: 400, 600, 700
-  - Usage: Hero text, Section Titles, Dish Names in cards and drawers.
-- **Body Text (Sans-serif)**: *Outfit*
-  - Weights: 300, 400
-  - Usage: Descriptions, navigation links, AI Assistant chat, metadata.
-  - *Why Outfit?* It provides a clean, geometric, and futuristic counterpoint to the classic serif headings.
+## Type
 
-## 4. Components & Interactions
+- **Bodoni Moda** (`font-display`): section titles and dish names (the logo lettering is drawn from it too). Italic is the only flourish (the `&` in section titles, group headings).
+- **Geist** (`font-sans`): everything functional. Prices use `.tabular`.
+- No em dashes anywhere in visible copy.
 
-### The Dish Card
-- **Layout**: Image-heavy top with a stark, clean text layout below.
-- **Interaction**: On hover, the card lifts slightly (`-translate-y-1`), borders glow with a subtle crimson hue, and the image scales slowly (`scale-105`) while fading from 80% to 100% opacity.
-- **Buttons**: Inline, text-based actions featuring a trailing arrow that slides right on hover in crimson.
+## Shape
 
-### The Dish Drawer (Side Drawer)
-- **Animation**: Slides in from the right using a spring physics configuration in `framer-motion` (`stiffness: 200, damping: 25`).
-- **Layout**: 
-  - Massive hero image that bleeds to the edges.
-  - Two-column grid for ingredients, allergens, and spice levels.
-  - Integrated AI Assistant at the bottom.
-- **Responsiveness**: Full width on mobile, max-width 600px on desktop. Scroll is locked behind it when open on mobile.
+- Images and panels: `rounded-tile` (20px).
+- Every control (buttons, pills, tabs, inputs): full pill.
+- The brand shape (hero plate, Mains plates, Visit photo): full circle.
 
-### The AI Assistant (Circle Concierge)
-- **Role**: Simulates a live Sommelier & Chef.
-- **Design**: Encased in a custom card with rounded corners, using crimson backgrounds for user messages and translucent borders for the AI's responses.
-- **Interaction**: Features a "typing" animation (three bouncing crimson dots) and pre-filled suggestion chips (e.g., "Suggest a wine pairing").
+## Layers
 
-## 5. Animation Primitives (Framer Motion)
-- **Fade Up**: Elements drift upwards into place while fading in. Used for staggered list reveals.
-- **Spring Slides**: Used for the Side Drawer to give it physical "weight" and premium feel.
-- **Slow Zooms**: Background images and card images have 1-second-plus transition durations (`duration-700` or `duration-1000`) for a cinematic feel.
+Only these z-index values exist (Tailwind `z-*`): `raised` 1, `header` 40, `dock` 45, `sheet` 60, `palette` 70, `grain` 90.
 
-## 6. CSS Utilities
-- Custom scrollbar styled to match the dark/crimson theme (invisible track, crimson translucent thumb).
-- Native Tailwind line-clamp utilities used to keep grid cards perfectly aligned.
+## Menu layouts
+
+Each section in `data/menu.js` names a `layout`:
+
+| Layout | Section | What it does |
+|---|---|---|
+| `bento` | Starters | One large photo plus four around it, then text rows |
+| `plates` | Mains | Round-cropped photos that turn on hover |
+| `preview` | Pasta & Steak | One list; a pinned photo follows the row you hover (tablet and up) |
+| `card` | Desserts | A printed-menu card with sides as chips |
+| `bar` | Drinks | Tabs, a photo gallery, then text rows |
+| `cellar` | Spirits | Shot photos, then bottle lists set in columns |
+
+Dishes without a photo render as menu rows (name, dotted leader, price). Add an `image` and the dish moves into its section's visual layout automatically.
+
+## Motion
+
+Motion (`motion/react`) with `MotionConfig reducedMotion="user"`, so everything calms down for guests who ask for reduced motion. Motion is used for: the hero reveal and turning plate, scroll reveals, the sliding active pill, sheet and search transitions. Nothing loops except the hero plate and its text ring.
+
+## Logo
+
+`components/brand/Logo.js` holds the logo as vectors: `LogoMark` (the rings), `Wordmark` ("circle") and `LogoLockup` (all three with "Restaurant & lounge"). The rings are traced from the original artwork; the lettering is Bodoni Moda outlines. Everything uses `currentColor`.
+
+- Header: mark in logo red + wordmark.
+- Hero: the dish photo sits in the rings' inner circle and the rings turn around it.
+- Opening moment (`components/brand/Intro.js`): logo red with the lockup, once per visit.
+- Footer, favicon, Apple icon and the WhatsApp/Instagram share image (`app/opengraph-image.png`) all use the mark.

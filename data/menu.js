@@ -1,86 +1,54 @@
+// Circle menu data.
+//
+// Section shape:
+//   { id, name, label, blurb, layout, groups: [{ name, items: [...] }] }
+//   `layout` picks how the section is composed (see components/menu/*).
+//   `id` values are page anchors, keep them stable.
+//
+// Item shape:
+//   { id, name, price?, desc, image?, options?, signature? }
+//   price    number in naira. Omit when the item has `options`, the card shows "from" the lowest.
+//   options  [{ name, price }] for bottles or variants, listed inside the item.
+//   signature true puts the item in the "Signatures" rail near the top of the page.
+
+const img = (path) => `https://res.cloudinary.com/dmpulmnb9/image/upload/${path}`
+
+const NEW = {
+  tacos: img('v1790594440/circle-menu/tacos.jpg'),
+  linguine: img('v1790594445/circle-menu/seafood-linguine.jpg'),
+  mojito: img('v1790594448/circle-menu/mojito.jpg'),
+  negroni: img('v1790594452/circle-menu/negroni.jpg'),
+  longIsland: img('v1790594460/circle-menu/long-island-ice-tea.jpg'),
+  daiquiri: img('v1790594471/circle-menu/daiquiri.jpg'),
+}
+
 export const menuData = [
   {
     id: 'starters',
     name: 'Starters & Garden',
     label: 'Starters',
-    subtitle: 'Begin Your Journey',
-    description: 'A selection of appetizing starters and fresh garden salads.',
-    items: [
+    blurb: 'Small plates to share while the table settles in.',
+    layout: 'bento',
+    groups: [
       {
-        id: 's-butter-yam',
-        name: 'Butter Yam',
-        price: '₦10,000',
-        shortDesc: 'Delicious butter yam',
-        description: 'Delicious butter yam, perfectly cooked and served hot.',
-        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1782012577/butter-yam_os7clp.jpg',
+        name: 'Starters',
+        items: [
+          { id: 's-butter-yam', name: 'Butter Yam', price: 10000, desc: 'Golden yam, cooked in butter and served hot with a creamy dip.', image: img('v1782012577/butter-yam_os7clp.jpg') },
+          { id: 's-shrimp-tempura', name: 'Shrimp Tempura', price: 15000, desc: 'Shrimps in a light, crispy tempura batter, with fries and dipping sauces.', image: img('v1782012812/Shrimps_Temporal_kfikix.jpg') },
+          { id: 's1', name: 'Chicken Quesadilla', price: 15000, desc: 'Char-grilled chicken, cheddar cheese and caramelized onion, served with guacamole.', image: img('v1779826038/chicken-quesadilla_f6t0na.jpg') },
+          { id: 's2', name: 'Tacos (Chicken or Seafood)', price: 15000, desc: 'Caramelized spicy chicken or seafood, topped with guacamole, pico de gallo and lime.', image: NEW.tacos, signature: true },
+          { id: 's6', name: 'Seafood Tapas', price: 15000, desc: 'Sautéed spicy calamari and shrimps, served with garlic bread.', image: img('v1779655032/seafoodtapas_f8ewuo.jpg'), signature: true },
+          { id: 's3', name: 'Spicy Snail', price: 15000, desc: 'Sautéed snails with pepper mix and provençal sauce, onion and tomato.' },
+          { id: 's4', name: 'Spicy Wings', price: 15000, desc: 'Chicken wings tossed in spicy tomato sauce.' },
+          { id: 's5', name: 'Butterfly Shrimps', price: 15000, desc: 'Deep fried shrimps coated in spicy sauce, finished with herbs.' },
+        ],
       },
       {
-        id: 's-shrimps-temporal',
-        name: 'Shrimps Temporal',
-        price: '₦15,000',
-        shortDesc: 'Crispy fried shrimps temporal',
-        description: 'Crispy fried shrimps temporal served with a side of dipping sauce.',
-        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1782012812/Shrimps_Temporal_kfikix.jpg',
-      },
-      {
-        id: 's1',
-        name: 'Chicken Quesadilla',
-        price: '₦15,000',
-        shortDesc: 'Char-grilled Chicken, cheddar cheese, caramelized onion served with guacamole',
-        description: 'Char-grilled Chicken, cheddar cheese, caramelized onion served with guacamole.',
-        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826038/chicken-quesadilla_f6t0na.jpg',
-      },
-      {
-        id: 's2',
-        name: 'Tacos (Chicken/Seafood)',
-        price: '₦15,000',
-        shortDesc: 'Carmalized spicy chicken topped with guacamole, PICO DE GALLO & lime',
-        description: 'Carmalized spicy chicken topped with guacamole, PICO DE GALLO & lime.',
-      },
-      {
-        id: 's3',
-        name: 'Spicy Snail',
-        price: '₦15,000',
-        shortDesc: 'Sauteed snails with pepper mix, provengal sauce with onion and tomato',
-        description: 'Sauteed snails with pepper mix, provengal sauce with onion and tomato.',
-      },
-      {
-        id: 's4',
-        name: 'Spicy wings',
-        price: '₦15,000',
-        shortDesc: 'Chicken wings tossed in spicy tomato sauce',
-        description: 'Chicken wings tossed in spicy tomato sauce.',
-      },
-      {
-        id: 's5',
-        name: 'Butterfly Shrimps',
-        price: '₦15,000',
-        shortDesc: 'Deep fried shrimps coated with spicy sauce, garnished with herbs',
-        description: 'Deep fried shrimps coated with spicy sauce, garnished with herbs.',
-      },
-      {
-        id: 's6',
-        name: 'Seafood Tapaz',
-        price: '₦15,000',
-        shortDesc: 'Sauteed Spicy Calamari and shrimps, served with garlic bread.',
-        description: 'Sauteed Spicy Calamari and shrimps, served with garlic bread.',
-        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779655032/seafoodtapas_f8ewuo.jpg',
-      },
-      {
-        id: 'cg1',
-        name: 'Fruit Fusion',
-        price: '₦15,000',
-        badge: 'Circle Garden',
-        shortDesc: 'Mixture of edible fruits, with milk',
-        description: 'Mixture of edible fruits, with milk.',
-      },
-      {
-        id: 'cg2',
-        name: 'Chicken Salad',
-        price: '₦15,000',
-        badge: 'Circle Garden',
-        shortDesc: 'Shredded chicken with a combo of mixed Veg, served with sweet and sour creamy sauce',
-        description: 'Shredded chicken with a combo of mixed Veg, served with sweet and sour creamy sauce.',
+        name: 'Circle Garden',
+        items: [
+          { id: 'cg1', name: 'Fruit Fusion', price: 15000, desc: 'A mix of fresh fruits, served with milk.' },
+          { id: 'cg2', name: 'Chicken Salad', price: 15000, desc: 'Shredded chicken over mixed vegetables with a sweet and sour creamy dressing.' },
+        ],
       },
     ],
   },
@@ -88,93 +56,31 @@ export const menuData = [
     id: 'mains',
     name: 'Main Course',
     label: 'Mains',
-    subtitle: 'The Heart of the Table',
-    description: 'Signature dishes, premium poultry, and fresh seafood.',
-    items: [
+    blurb: 'House signatures, poultry and seafood from the Circle kitchen.',
+    layout: 'plates',
+    groups: [
       {
-        id: 'm1',
-        name: 'Signature Rice',
-        price: '₦25,000',
-        badge: 'Circle Signature',
-        shortDesc: 'Signature rice served with Fajita sauce, sauteed chicken breast, bell pepper and sweet chilli.',
-        description: 'Signature rice served with Fajita sauce, sauteed chicken breast, bell pepper and sweet chilli.',
+        name: 'Circle Signatures',
+        items: [
+          { id: 'm2', name: 'Asun Jollof Rice', price: 25000, desc: 'Smoky jollof rice with spicy peppered goat meat.', image: img('v1779655030/asun-rice_mrn1ni.jpg'), signature: true },
+          { id: 'm1', name: 'Signature Rice', price: 25000, desc: 'Signature rice with fajita sauce, sautéed chicken breast, bell pepper and sweet chilli.' },
+          { id: 'm4', name: 'Circle Platter', price: 25000, desc: 'Yam fries, plantain fries, rice, chicken wings, snail, prawns, puff puff, samosa and spring rolls.' },
+        ],
       },
       {
-        id: 'm2',
-        name: 'Asun Jollof Rice',
-        price: '₦25,000',
-        badge: 'Circle Signature',
-        shortDesc: 'Classic Asun Jollof Rice',
-        description: 'A spicy and flavorful classic Asun Jollof Rice combination.',
-        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779655030/asun-rice_mrn1ni.jpg',
+        name: 'Poultry',
+        items: [
+          { id: 'p2', name: 'Half Grilled Chicken', price: 30000, desc: 'Oven roasted half chicken tossed in tomato sauce, served with jollof rice.', image: img('v1779825981/half-grilled-chicken_gg7iji.jpg'), signature: true },
+          { id: 'p1', name: 'Crispy Chicken', price: 20000, desc: 'Deep fried chicken served with French fries and coleslaw.', image: img('v1779826357/crispy-chicken_jzbdux.jpg') },
+          { id: 'p3', name: 'Turkey Jollof', price: 20000, desc: 'Fried turkey tossed in spicy tomato sauce, served with Circle special fried rice.' },
+        ],
       },
       {
-        id: 'm3',
-        name: 'Circle Burger',
-        price: '₦25,000',
-        badge: 'Circle Signature',
-        shortDesc: 'Our signature Circle Burger',
-        description: 'Our signature Circle Burger, crafted for the ultimate taste.',
-        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826444/circle-burger_e6juwq.jpg',
-      },
-      {
-        id: 'm4',
-        name: 'Circle Platter',
-        price: '₦25,000',
-        badge: 'Circle Signature',
-        shortDesc: 'Yam fries, plantain fries, rice, chicken wings, snail, prawns, puff puff, samosa, spring rolls.',
-        description: 'Yam fries, plantain fries, rice, chicken wings, snail, prawns, puff puff, samosa, spring rolls.',
-      },
-      {
-        id: 'p1',
-        name: 'Crispy Chicken',
-        price: '₦20,000',
-        badge: 'Poultry',
-        shortDesc: 'Deep fried Chicken served with French fries, coleslaw.',
-        description: 'Deep fried Chicken served with French fries, coleslaw.',
-        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826357/crispy-chicken_jzbdux.jpg',
-      },
-      {
-        id: 'p2',
-        name: 'Half Grilled Chicken',
-        price: '₦30,000',
-        badge: 'Poultry',
-        shortDesc: 'Oven roasted Half chicken, tossed in tomato sauce, served with Jollof rice',
-        description: 'Oven roasted Half chicken, tossed in tomato sauce, served with Jollof rice.',
-        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779825981/half-grilled-chicken_gg7iji.jpg',
-      },
-      {
-        id: 'p3',
-        name: 'Turkey Jollof',
-        price: '₦20,000',
-        badge: 'Poultry',
-        shortDesc: 'Fried Turkey tossed in spicy tomato sauce, served with circle special fried rice.',
-        description: 'Fried Turkey tossed in spicy tomato sauce, served with circle special fried rice.',
-      },
-      {
-        id: 'sf1',
-        name: 'Grilled Croaker',
-        price: '₦30,000',
-        badge: 'Seafood',
-        shortDesc: 'Whole grilled Croaker fish with signature pepper sauce, served with yam fries',
-        description: 'Whole grilled Croaker fish with signature pepper sauce, served with yam fries.',
-        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826297/grilled-croaker_z7gnti.jpg',
-      },
-      {
-        id: 'sf2',
-        name: 'Salmon',
-        price: '₦30,000',
-        badge: 'Seafood',
-        shortDesc: 'Salmon served with creamy mashed potato, steamed broccoli, carrot and zuchhini for garnishing',
-        description: 'Salmon served with creamy mashed potato, steamed broccoli, carrot and zuchhini for garnishing.',
-      },
-      {
-        id: 'sf3',
-        name: 'King Prawns',
-        price: '₦30,000',
-        badge: 'Seafood',
-        shortDesc: 'Grilled Jumbo Prawns served with creamy sauce, veg and French fries',
-        description: 'Grilled Jumbo Prawns served with creamy sauce, veg and French fries.',
+        name: 'Seafood',
+        items: [
+          { id: 'sf1', name: 'Grilled Croaker', price: 30000, desc: 'Whole grilled croaker with our signature pepper sauce, served with yam fries.', image: img('v1779826297/grilled-croaker_z7gnti.jpg') },
+          { id: 'sf3', name: 'King Prawns', price: 30000, desc: 'Grilled jumbo prawns with creamy sauce, vegetables and French fries.' },
+        ],
       },
     ],
   },
@@ -182,266 +88,279 @@ export const menuData = [
     id: 'pasta_steak',
     name: 'Pasta & Steak',
     label: 'Pasta & Steak',
-    subtitle: 'Rich & Flavorful',
-    description: 'Exquisite pastas and premium grilled steaks.',
-    items: [
+    blurb: 'Slow sauces, fresh pasta and Australian cuts off the grill.',
+    layout: 'preview',
+    groups: [
       {
-        id: 'pa1',
-        name: 'Spaghetti Bolognaise',
-        price: '₦25,000',
-        badge: 'Pasta',
-        shortDesc: 'Spaghetti pasta tossed in spicy tomato sauce, mixed with minced beef or chicken',
-        description: 'Spaghetti pasta tossed in spicy tomato sauce, mixed with minced beef or chicken.',
-        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779825958/spaghetti-bolon_sd3mip.jpg',
+        name: 'Pasta',
+        items: [
+          { id: 'pa2', name: 'Seafood Linguine', price: 25000, desc: 'Linguine tossed in red wine with calamari and shrimps, in spicy tomato or creamy sauce.', image: NEW.linguine, signature: true },
+          { id: 'pa1', name: 'Spaghetti Bolognaise', price: 25000, desc: 'Spaghetti in spicy tomato sauce with minced beef or chicken.', image: img('v1779825958/spaghetti-bolon_sd3mip.jpg') },
+          { id: 'pa3', name: 'Chicken Alfredo Pasta', price: 25000, desc: 'Spaghetti tossed in white wine and a creamy Alfredo sauce.' },
+        ],
       },
       {
-        id: 'pa2',
-        name: 'Seafood Linguine',
-        price: '₦25,000',
-        badge: 'Pasta',
-        shortDesc: 'Linguine pasta tossed in red wine, calamari, shrimps, and spicy tomato sauce or creamy sauce',
-        description: 'Linguine pasta tossed in red wine, calamari, shrimps, and spicy tomato sauce or creamy sauce.',
+        name: 'Steak',
+        items: [
+          { id: 'st2', name: 'T-Bone Steak', price: 50000, desc: 'Grilled Australian T-bone with steak sauce, mashed potato and steamed vegetables.', image: img('v1782012751/t-bone_steak_t8bzq3.jpg'), signature: true },
+          { id: 'st1', name: 'Lamb Chops', price: 50000, desc: 'Grilled Australian lamb chops with creamy mashed potato, steak sauce and steamed vegetables.' },
+        ],
       },
-      {
-        id: 'pa3',
-        name: 'Chicken Afredo Pasta',
-        price: '₦25,000',
-        badge: 'Pasta',
-        shortDesc: 'Spaghetti Pasta, tossed in white wine, creamy Alfredo sauce.',
-        description: 'Spaghetti Pasta, tossed in white wine, creamy Alfredo sauce.',
-      },
-      {
-        id: 'st1',
-        name: 'Lamb Chops',
-        price: '₦50,000',
-        badge: 'Steak',
-        shortDesc: 'Grilled Australian Lamb chops served with Creamy Mashed potato, steak sauce and steamed veg for garnishing',
-        description: 'Grilled Australian Lamb chops served with Creamy Mashed potato, steak sauce and steamed veg for garnishing.',
-      },
-      {
-        id: 'st2',
-        name: 'T Bone Steak',
-        price: '₦50,000',
-        badge: 'Steak',
-        shortDesc: 'Grilled Australian T-bone steak served with steak sauce, mashed potato and steamed veggies',
-        description: 'Grilled Australian T-bone steak served with steak sauce, mashed potato and steamed veggies.',
-        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1782012751/t-bone_steak_t8bzq3.jpg',
-      },
-      {
-        id: 'st3',
-        name: 'Rib Eye Steak',
-        price: '₦55,000',
-        badge: 'Steak',
-        shortDesc: 'Grilled Australian Rib eye steak served with steak sauce, mashed potato and steamed veggies',
-        description: 'Grilled Australian Rib eye steak served with steak sauce, mashed potato and steamed veggies.',
-      },
-    ]
+    ],
   },
   {
     id: 'desserts',
     name: 'Desserts & Sides',
     label: 'Desserts',
-    subtitle: 'Sweet Finish & Extras',
-    description: 'Delightful desserts and satisfying side dishes.',
-    items: [
+    blurb: 'Something sweet to finish, and sides for the table.',
+    layout: 'card',
+    groups: [
       {
-        id: 'd1',
-        name: 'Oreo Madness',
-        price: '₦15,000',
-        badge: 'Dessert',
-        shortDesc: 'Decadent Oreo Madness dessert',
-        description: 'A decadent Oreo Madness dessert to satisfy your sweet cravings.',
+        name: 'Desserts',
+        items: [
+          { id: 'd1', name: 'Oreo Madness', price: 15000, desc: 'A rich Oreo dessert for serious sweet cravings.' },
+          { id: 'd2', name: 'Cheesecake', price: 15000, desc: 'Classic creamy cheesecake.' },
+          { id: 'd3', name: 'Ice Cream', price: 5000, desc: 'Premium ice cream scoops.' },
+        ],
       },
       {
-        id: 'd2',
-        name: 'Cheese Cake',
-        price: '₦15,000',
-        badge: 'Dessert',
-        shortDesc: 'Classic creamy Cheese Cake',
-        description: 'Classic creamy Cheese Cake, baked to perfection.',
+        name: 'Sides',
+        items: [
+          { id: 'sd1', name: 'Sides', desc: 'Add any of these to your plate.', sides: ['Jollof Rice', 'Fried Rice', 'French Fries', 'Yam Fries', 'Mashed Potato', 'Sautéed Veg', 'Plantain Fries'] },
+        ],
       },
-      {
-        id: 'd3',
-        name: 'Ice Cream',
-        price: '₦5,000',
-        badge: 'Dessert',
-        shortDesc: 'Premium Ice Cream scoops',
-        description: 'Refreshing premium Ice Cream.',
-      },
-      {
-        id: 'sd1',
-        name: 'Sides Selection',
-        price: 'Extras',
-        badge: 'Sides',
-        shortDesc: 'Jollof Rice, Fried Rice, French Fries, Yam Fries, Mashed Potato, Sauteed Veg, Plantain Fries',
-        description: 'Enhance your meal with our selection of sides: Jollof Rice, Fried Rice, French Fries, Yam Fries, Mashed Potato, Sauteed Veg, and Plantain Fries.',
-      },
-    ]
+    ],
   },
   {
     id: 'drinks',
-    name: 'Drinks Menu',
+    name: 'Drinks',
     label: 'Drinks',
-    subtitle: 'Refresh & Unwind',
-    description: 'Handcrafted cocktails, mocktails, milkshakes and more.',
-    hasSubMenu: true,
-    items: [
-      // Imaged Cocktails
-      { id: 'dr-martyr', name: 'Martyr', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Martyr Cocktail', description: 'A unique Martyr cocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1787172297/image_ge1fmr.png' },
-      { id: 'dr-rainbow', name: 'Rainbow Cocktail', price: '₦10,000', badge: 'Cocktails', shortDesc: 'A colorful Rainbow Cocktail', description: 'A beautifully colorful and sweet Rainbow Cocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779890041/Rainbow_Cocktail_vfhgqb.jpg' },
-      { id: 'dr-blue-lady', name: 'Blue Lady Cocktail', price: '₦10,000', badge: 'Cocktails', shortDesc: 'A vibrant Blue Lady', description: 'A vibrant, refreshing and visually striking Blue Lady cocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779889654/Blue_Lady_hkesyl.jpg' },
-      { id: 'dr-skull', name: 'Skull Signature Cocktail', price: '₦15,000', badge: 'Cocktails', shortDesc: 'A luxurious and exciting surprise...', description: 'A special signature cocktail wrapped in mystery. Expect a surprise, crafted in a luxurious and exciting way.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779829956/skull_dhtfwo.jpg' },
-      { id: 'dr-pina', name: 'Pina Colada', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Classic Pina Colada', description: 'A refreshing and creamy tropical blend of rum, coconut cream, and pineapple juice.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826932/Pinnacollada_xakgxm.jpg' },
-      { id: 'dr-pornstar', name: 'Pornstar Martini', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Passion-fruit-flavored cocktail', description: 'A delicious passion-fruit-flavored cocktail made with vanilla-flavored vodka, Passoã, passion fruit juice, and lime juice.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779826971/pornstarmartin_msjn5c.jpg' },
-      
-      // Other Cocktails
-      { id: 'dr-circle-zombie', name: 'Circle Zombie', price: '₦15,000', badge: 'Cocktails', shortDesc: 'Our signature Zombie cocktail', description: 'The Circle signature take on the classic Zombie cocktail.' },
-      { id: 'c1', name: 'Mojito', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Classic Mojito', description: 'Classic refreshing Mojito.' },
-      { id: 'c2', name: 'Negroni', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Classic Negroni', description: 'Classic Italian Negroni.' },
-      { id: 'c3', name: 'Long Island Ice Tea', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Long Island Ice Tea', description: 'Classic Long Island Ice Tea.' },
-      { id: 'c4', name: 'Margarita', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Classic Margarita', description: 'Classic refreshing Margarita.' },
-      { id: 'c5', name: 'Screwdriver', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Screwdriver', description: 'Classic Screwdriver.' },
-      { id: 'c6', name: 'Sex on the Beach', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Sex on the Beach', description: 'Fruity Sex on the Beach cocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1787168056/image_copy_w5a2oh.png' },
-      { id: 'c7', name: 'Tequila Sunrise', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Tequila Sunrise', description: 'Classic Tequila Sunrise.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1787168050/image_he0q3u.png' },
-      { id: 'c8', name: 'Moscow Mule', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Moscow Mule', description: 'Classic Moscow Mule.' },
-      { id: 'c9', name: 'Daiquiri', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Daiquiri', description: 'Classic Daiquiri.' },
-      { id: 'c10', name: 'Old fashioned', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Old fashioned', description: 'Classic Old fashioned.' },
-      { id: 'c11', name: 'Cosmopolitan', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Cosmopolitan', description: 'Classic Cosmopolitan.' },
-      { id: 'c12', name: 'Mimosa', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Mimosa', description: 'Refreshing Mimosa.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1787168048/image_copy_2_f6ruyp.png' },
-      { id: 'c13', name: 'Mai Tai', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Mai Tai', description: 'Classic Mai Tai.' },
-      { id: 'c14', name: 'Black Russia', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Black Russia', description: 'Black Russia.' },
-      { id: 'c15', name: 'Gimlet', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Gimlet', description: 'Gimlet cocktail.' },
-      { id: 'c16', name: 'Whiskey sour', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Whiskey sour', description: 'Classic Whiskey sour.' },
-      { id: 'c17', name: 'Rum punch', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Rum punch', description: 'Fruity Rum punch.' },
-      { id: 'c18', name: 'Discretion', price: '₦10,000', badge: 'Cocktails', shortDesc: 'Discretion', description: 'Discretion cocktail.' },
-
-      // Mocktails
-      { id: 'm1', name: 'Frozen Strawberry Daiquiri', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Frozen Strawberry Daiquiri', description: 'Frozen Strawberry Daiquiri mocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779830025/Frozen_Strawberry_daiquiri_le9kqw.jpg' },
-      { id: 'm2', name: 'Virgin Colada', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Virgin Colada', description: 'Virgin Colada mocktail.' },
-      { id: 'm3', name: 'Chapman', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Classic Chapman', description: 'Classic Chapman mocktail.' },
-      { id: 'm4', name: 'Virgin Blue Lagoon', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Virgin Blue Lagoon', description: 'Virgin Blue Lagoon mocktail.', image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1787172347/image_copy_j2x3rm.png' },
-      { id: 'm5', name: 'Virgin Mojito', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Virgin Mojito', description: 'Virgin Mojito mocktail.' },
-      { id: 'm6', name: 'Shirley Temple', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Shirley Temple', description: 'Shirley Temple mocktail.' },
-      { id: 'm7', name: 'Arnold Palmer', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Arnold Palmer', description: 'Arnold Palmer mocktail.' },
-      { id: 'm8', name: 'Roy Rogers', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Roy Rogers', description: 'Roy Rogers mocktail.' },
-      { id: 'm9', name: 'Blueberry Mojito', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Blueberry Mojito', description: 'Blueberry Mojito mocktail.' },
-      { id: 'm10', name: 'Virgin Sangria', price: '₦8,000', badge: 'Mocktails', shortDesc: 'Virgin Sangria', description: 'Virgin Sangria mocktail.' },
-
-      // Milkshakes
-      { id: 'ms1', name: 'Creamy Banana', price: '₦10,000', badge: 'Milkshakes', shortDesc: 'Creamy Banana Milkshake', description: 'Creamy Banana Milkshake.' },
-      { id: 'ms2', name: 'Chocolate', price: '₦10,000', badge: 'Milkshakes', shortDesc: 'Chocolate Milkshake', description: 'Chocolate Milkshake.' },
-      { id: 'ms3', name: 'Vanilla', price: '₦10,000', badge: 'Milkshakes', shortDesc: 'Vanilla Milkshake', description: 'Vanilla Milkshake.' },
-      { id: 'ms4', name: 'Strawberry', price: '₦10,000', badge: 'Milkshakes', shortDesc: 'Strawberry Milkshake', description: 'Strawberry Milkshake.' },
-      { id: 'ms5', name: 'Banana Strawberry', price: '₦10,000', badge: 'Milkshakes', shortDesc: 'Banana Strawberry Milkshake', description: 'Banana Strawberry Milkshake.' },
-
-      // Others
-      { id: 'o1', name: 'Coke', price: '₦1,000', badge: 'Others', shortDesc: 'Coke', description: 'Chilled Coke.' },
-      { id: 'o2', name: 'Power horse', price: '₦3,000', badge: 'Others', shortDesc: 'Power horse energy drink', description: 'Power horse energy drink.' },
-      { id: 'o3', name: 'Nestle water', price: '₦1,000', badge: 'Others', shortDesc: 'Nestle water', description: 'Nestle water.' },
-      { id: 'o4', name: 'Orange Juice', price: '₦10,000', badge: 'Others', shortDesc: 'Fresh Orange Juice', description: 'Freshly squeezed Orange Juice.' },
-      { id: 'o5', name: 'Shisha', price: '₦18,000', badge: 'Others', shortDesc: 'Shisha', description: 'Premium Shisha experience.' },
-      { id: 'o6', name: 'Extra coal', price: '₦5,000', badge: 'Others', shortDesc: 'Extra coal', description: 'Extra coal for Shisha.' },
-    ]
+    blurb: 'Cocktails, mocktails and milkshakes, made at the bar.',
+    layout: 'bar',
+    groups: [
+      {
+        name: 'Cocktails',
+        items: [
+          { id: 'dr-skull', name: 'Skull Signature Cocktail', price: 15000, desc: 'Our signature, served in a skull glass. What is inside stays a surprise until it lands on your table.', image: img('v1779829956/skull_dhtfwo.jpg'), signature: true },
+          { id: 'dr-martyr', name: 'Martyr', price: 10000, desc: 'A Circle house cocktail. Ask the bar what goes into it.', image: img('v1787172297/image_ge1fmr.png') },
+          { id: 'c1', name: 'Mojito', price: 10000, desc: 'White rum, fresh mint, lime and soda over crushed ice.', image: NEW.mojito },
+          { id: 'c2', name: 'Negroni', price: 10000, desc: 'Gin, Campari and sweet vermouth.', image: NEW.negroni },
+          { id: 'dr-rainbow', name: 'Rainbow Cocktail', price: 10000, desc: 'Layered, colourful and sweet.', image: img('v1779890041/Rainbow_Cocktail_vfhgqb.jpg') },
+          { id: 'c3', name: 'Long Island Iced Tea', price: 10000, desc: 'Vodka, gin, rum, tequila and triple sec with lemon and cola.', image: NEW.longIsland },
+          { id: 'dr-blue-lady', name: 'Blue Lady', price: 10000, desc: 'Bright blue, smooth and refreshing.', image: img('v1779889654/Blue_Lady_hkesyl.jpg') },
+          { id: 'c9', name: 'Daiquiri', price: 10000, desc: 'White rum, fresh lime and sugar, served up.', image: NEW.daiquiri },
+          { id: 'dr-pina', name: 'Piña Colada', price: 10000, desc: 'Rum, coconut cream and pineapple juice.', image: img('v1779826932/Pinnacollada_xakgxm.jpg') },
+          { id: 'dr-pornstar', name: 'Pornstar Martini', price: 10000, desc: 'Vanilla vodka, Passoã, passion fruit and lime.', image: img('v1779826971/pornstarmartin_msjn5c.jpg') },
+          { id: 'c6', name: 'Sex on the Beach', price: 10000, desc: 'Vodka, peach schnapps, orange and cranberry.', image: img('v1787168056/image_copy_w5a2oh.png') },
+          { id: 'c7', name: 'Tequila Sunrise', price: 10000, desc: 'Tequila, orange juice and grenadine.', image: img('v1787168050/image_he0q3u.png') },
+          { id: 'c12', name: 'Mimosa', price: 10000, desc: 'Sparkling wine and fresh orange juice.', image: img('v1787168048/image_copy_2_f6ruyp.png') },
+          { id: 'dr-circle-zombie', name: 'Circle Zombie', price: 15000, desc: 'Our signature take on the classic Zombie.' },
+          { id: 'c4', name: 'Margarita', price: 10000, desc: 'Tequila, triple sec and lime.' },
+          { id: 'c5', name: 'Screwdriver', price: 10000, desc: 'Vodka and orange juice.' },
+          { id: 'c8', name: 'Moscow Mule', price: 10000, desc: 'Vodka, ginger beer and lime.' },
+          { id: 'c10', name: 'Old Fashioned', price: 10000, desc: 'Whiskey, sugar and bitters.' },
+          { id: 'c11', name: 'Cosmopolitan', price: 10000, desc: 'Vodka, triple sec, cranberry and lime.' },
+          { id: 'c13', name: 'Mai Tai', price: 10000, desc: 'Rum, orange liqueur, lime and orgeat.' },
+          { id: 'c14', name: 'Black Russian', price: 10000, desc: 'Vodka and coffee liqueur.' },
+          { id: 'c15', name: 'Gimlet', price: 10000, desc: 'Gin and lime.' },
+          { id: 'c16', name: 'Whiskey Sour', price: 10000, desc: 'Whiskey, lemon and sugar.' },
+          { id: 'c17', name: 'Rum Punch', price: 10000, desc: 'Rum with tropical fruit juices.' },
+          { id: 'c18', name: 'Discretion', price: 10000, desc: 'A Circle house cocktail.' },
+        ],
+      },
+      {
+        name: 'Mocktails',
+        items: [
+          { id: 'mk1', name: 'Frozen Strawberry Daiquiri', price: 8000, desc: 'Frozen strawberry and lime, alcohol free.', image: img('v1779830025/Frozen_Strawberry_daiquiri_le9kqw.jpg') },
+          { id: 'mk4', name: 'Virgin Blue Lagoon', price: 8000, desc: 'Blue curaçao syrup, lemonade and lime.', image: img('v1787172347/image_copy_j2x3rm.png') },
+          { id: 'mk2', name: 'Virgin Colada', price: 8000, desc: 'Coconut cream and pineapple juice.' },
+          { id: 'mk3', name: 'Chapman', price: 8000, desc: 'The Nigerian classic, fruity and fizzy.' },
+          { id: 'mk5', name: 'Virgin Mojito', price: 8000, desc: 'Mint, lime and soda.' },
+          { id: 'mk6', name: 'Shirley Temple', price: 8000, desc: 'Ginger ale and grenadine.' },
+          { id: 'mk7', name: 'Arnold Palmer', price: 8000, desc: 'Iced tea and lemonade.' },
+          { id: 'mk8', name: 'Roy Rogers', price: 8000, desc: 'Cola and grenadine.' },
+          { id: 'mk9', name: 'Blueberry Mojito', price: 8000, desc: 'Blueberry, mint, lime and soda.' },
+          { id: 'mk10', name: 'Virgin Sangria', price: 8000, desc: 'Fruit juices and fresh fruit.' },
+        ],
+      },
+      {
+        name: 'Milkshakes',
+        items: [
+          { id: 'ms1', name: 'Creamy Banana', price: 10000, desc: 'Banana milkshake.' },
+          { id: 'ms2', name: 'Chocolate', price: 10000, desc: 'Chocolate milkshake.' },
+          { id: 'ms3', name: 'Vanilla', price: 10000, desc: 'Vanilla milkshake.' },
+          { id: 'ms4', name: 'Strawberry', price: 10000, desc: 'Strawberry milkshake.' },
+          { id: 'ms5', name: 'Banana Strawberry', price: 10000, desc: 'Banana and strawberry milkshake.' },
+        ],
+      },
+      {
+        name: 'Soft Drinks & Shisha',
+        items: [
+          { id: 'o4', name: 'Orange Juice', price: 10000, desc: 'Freshly squeezed.' },
+          { id: 'o1', name: 'Coke', price: 1000, desc: 'Chilled.' },
+          { id: 'o2', name: 'Power Horse', price: 3000, desc: 'Energy drink.' },
+          { id: 'o3', name: 'Nestlé Water', price: 1000, desc: 'Still water.' },
+          { id: 'o5', name: 'Shisha', price: 18000, desc: 'Premium shisha, prepared at your table.' },
+          { id: 'o6', name: 'Extra Coal', price: 5000, desc: 'For your shisha.' },
+        ],
+      },
+    ],
   },
   {
     id: 'spirits',
     name: 'Spirits & Wine',
     label: 'Spirits',
-    subtitle: 'Premium Selection',
-    description: 'Exclusive whiskeys, fine wines, and premium spirits.',
-    hasSubMenu: true,
-    items: [
+    blurb: 'Bottles for the table and shots for the moment.',
+    layout: 'cellar',
+    groups: [
       {
-        id: 'sp-b52',
-        name: 'B52 Shot',
-        price: '₦5,000',
-        badge: 'Shot',
-        shortDesc: 'A classic layered B52 shot',
-        description: 'A classic visually stunning layered B52 shot.',
-        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779889721/B52_cmkt84.jpg',
-      },
-      {
-        id: 'sp-alien-brain',
-        name: 'Alien Brain Shot',
-        price: '₦5,000',
-        badge: 'Shot',
-        shortDesc: 'A thrilling and unique shot',
-        description: 'A thrilling, unique and visually stunning Alien Brain shot.',
-        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779889561/Alien_Brain_ellgdc.jpg',
-      },
-      {
-        id: 'sp-love-drop',
-        name: 'Love Lemon Drop Shot',
-        price: '₦5,000',
-        badge: 'Shot',
-        shortDesc: 'A refreshing sweet & sour shot',
-        description: 'A refreshing and sweet Love Lemon Drop shot.',
-        image: 'https://res.cloudinary.com/dmpulmnb9/image/upload/v1779889430/love-lemon-drop_lighqr.jpg',
-      },
-      {
-        id: 'sp1',
-        name: 'Premium Whiskey',
-        price: 'from ₦54,000',
-        badge: 'Whiskey',
-        shortDesc: 'Glen 21 yrs, Jameson, Jack Daniels...',
-        description: 'Glen 21 years (₦600k), Glen 18 years (₦225k), Glen 15 years (₦153k), Jameson black barrel (₦72k), Jameson green (₦59k), Jack Daniels (₦54k), Gold label (₦135k), William Lawson (₦59k), The observatory (₦65k).',
-      },
-      {
-        id: 'sp2',
-        name: 'Wine Collection',
-        price: 'from ₦25,000',
-        badge: 'Wine',
-        shortDesc: 'Carlo Rossi, Don Alvaro, Declan, Friends and family.',
-        description: 'Carlo Rossi (₦30k), Don Alvaro (₦30k), Declan (₦30k), Friends and family (₦25k).',
-      },
-      {
-        id: 'sp3',
-        name: 'Vodka',
-        price: 'from ₦100,000',
-        badge: 'Vodka',
-        shortDesc: 'Ciroc & Grey goose',
-        description: 'Ciroc - ₦126,000, Grey goose - ₦100,000.',
-      },
-      {
-        id: 'sp4',
-        name: 'Liquor',
-        price: '₦45,000',
-        badge: 'Liquor',
-        shortDesc: 'Baileys & Jagermeister',
-        description: 'Baileys - ₦45,000, Jagermeister - ₦45,000.',
-      },
-      {
-        id: 'sp5',
         name: 'Shots',
-        price: 'from ₦4,000',
-        badge: 'Shot',
-        shortDesc: 'Tequila, Whiskey, Barcadi',
-        description: 'Tequila shot - ₦4,000, Whiskey shot - ₦6,000, Barcadi - ₦4,000.',
+        items: [
+          { id: 'sp-b52', name: 'B52', price: 5000, desc: 'Coffee liqueur, Irish cream and orange liqueur, layered.', image: img('v1779889721/B52_cmkt84.jpg') },
+          { id: 'sp-alien-brain', name: 'Alien Brain', price: 5000, desc: 'A layered shot with a striking look.', image: img('v1779889561/Alien_Brain_ellgdc.jpg') },
+          { id: 'sp-love-drop', name: 'Love Lemon Drop', price: 5000, desc: 'Sweet and sour, with a creamy top.', image: img('v1779889430/love-lemon-drop_lighqr.jpg') },
+          {
+            id: 'sp5', name: 'Classic Shots', desc: 'By the glass.',
+            options: [
+              { name: 'Tequila', price: 4000 },
+              { name: 'Bacardi', price: 4000 },
+              { name: 'Whiskey', price: 6000 },
+            ],
+          },
+        ],
       },
       {
-        id: 'sp6',
-        name: 'Tequila',
-        price: 'from ₦40,000',
-        badge: 'Tequila',
-        shortDesc: 'Don Julio, Azul, Olmeca, Casamigos...',
-        description: 'Don Julio (₦600,000), Azul (₦600,000), Olmeca silver (₦50,000), Olmeca Gold (₦55,000), Casamigos (₦320,000), Barcadi (₦40,000).',
-      },
-      {
-        id: 'sp7',
         name: 'Champagne',
-        price: 'from ₦20,000',
-        badge: 'Champagne',
-        shortDesc: 'Ace of spades, Dom perignon, Moët, Veuve clicquot...',
-        description: 'Ace of spades (₦750,000), Dom perignon (₦700,000), Martini rose (₦45,000), Martini Asti (₦45,000), Belaire rose (₦153,000), Moët rose (₦225,000), Veuve clicquot (₦225,000), Blue nun (₦54,000), Alita (₦40,000), Chamdor (₦20,000).',
+        items: [
+          {
+            id: 'sp7', name: 'Champagne & Sparkling', desc: 'By the bottle.',
+            options: [
+              { name: 'Ace of Spades', price: 750000 },
+              { name: 'Dom Pérignon', price: 700000 },
+              { name: 'Moët Rosé', price: 225000 },
+              { name: 'Veuve Clicquot', price: 225000 },
+              { name: 'Belaire Rosé', price: 153000 },
+              { name: 'Blue Nun', price: 54000 },
+              { name: 'Martini Rosé', price: 45000 },
+              { name: 'Martini Asti', price: 45000 },
+              { name: 'Alita', price: 40000 },
+              { name: 'Chamdor', price: 20000 },
+            ],
+          },
+        ],
       },
       {
-        id: 'sp8',
-        name: 'Cognac',
-        price: 'from ₦100,000',
-        badge: 'Cognac',
-        shortDesc: 'Hennessy, Deau, Martel...',
-        description: 'Hennessy vsop (₦225,000), Hennessy vs (₦108,000), Deau Vsop (₦160,000), Deau Vs (₦100,000), Martel vs (₦108,000), Martel blue swift (₦171,000).',
+        name: 'Whiskey',
+        items: [
+          {
+            id: 'sp1', name: 'Whiskey', desc: 'By the bottle.',
+            options: [
+              { name: 'Glen 21 Years', price: 600000 },
+              { name: 'Glen 18 Years', price: 225000 },
+              { name: 'Glen 15 Years', price: 153000 },
+              { name: 'Johnnie Walker Gold Label', price: 135000 },
+              { name: 'Jameson Black Barrel', price: 72000 },
+              { name: 'The Observatory', price: 65000 },
+              { name: 'Jameson Green', price: 59000 },
+              { name: 'William Lawson', price: 59000 },
+              { name: 'Jack Daniel’s', price: 54000 },
+            ],
+          },
+        ],
       },
-    ]
-  }
+      {
+        name: 'Cognac',
+        items: [
+          {
+            id: 'sp8', name: 'Cognac', desc: 'By the bottle.',
+            options: [
+              { name: 'Hennessy VSOP', price: 225000 },
+              { name: 'Martell Blue Swift', price: 171000 },
+              { name: 'Deau VSOP', price: 160000 },
+              { name: 'Hennessy VS', price: 108000 },
+              { name: 'Martell VS', price: 108000 },
+              { name: 'Deau VS', price: 100000 },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Tequila',
+        items: [
+          {
+            id: 'sp6', name: 'Tequila & Rum', desc: 'By the bottle.',
+            options: [
+              { name: 'Don Julio', price: 600000 },
+              { name: 'Clase Azul', price: 600000 },
+              { name: 'Casamigos', price: 320000 },
+              { name: 'Olmeca Gold', price: 55000 },
+              { name: 'Olmeca Silver', price: 50000 },
+              { name: 'Bacardi', price: 40000 },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Vodka & Liqueur',
+        items: [
+          {
+            id: 'sp3', name: 'Vodka', desc: 'By the bottle.',
+            options: [
+              { name: 'Cîroc', price: 126000 },
+              { name: 'Grey Goose', price: 100000 },
+            ],
+          },
+          {
+            id: 'sp4', name: 'Liqueur', desc: 'By the bottle.',
+            options: [
+              { name: 'Baileys', price: 45000 },
+              { name: 'Jägermeister', price: 45000 },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Wine',
+        items: [
+          {
+            id: 'sp2', name: 'Wine', desc: 'By the bottle.',
+            options: [
+              { name: 'Carlo Rossi', price: 30000 },
+              { name: 'Don Alvaro', price: 30000 },
+              { name: 'Declan', price: 30000 },
+              { name: 'Friends & Family', price: 25000 },
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ]
+
+// Every item knows where it lives, so the dish sheet and search can label it.
+for (const section of menuData) {
+  for (const group of section.groups) {
+    for (const item of group.items) {
+      Object.assign(item, { sectionId: section.id, sectionName: section.name, groupName: group.name })
+    }
+  }
+}
+
+export const allItems = menuData.flatMap((section) => section.groups.flatMap((group) => group.items))
+
+export const signatureItems = allItems.filter((item) => item.signature && item.image)
+
+export const restaurant = {
+  name: 'Circle Restaurant & Lounge',
+  phone: '+234 811 000 0069',
+  phoneHref: 'tel:+2348110000069',
+  addressLines: ['Benin City Mall (Shoprite)', '18 Central Rd., Benin City'],
+  mapsHref: 'https://maps.app.goo.gl/Xa7r6bzbPF4x84tU9',
+  instagram: 'circle_benin',
+  instagramHref: 'https://www.instagram.com/circle_benin/',
+  hours: [
+    { days: 'Mon - Thu', time: '12:00 - 23:00' },
+    { days: 'Fri - Sat', time: '12:00 - 01:00' },
+    { days: 'Sun', time: '13:00 - 22:00' },
+  ],
+}

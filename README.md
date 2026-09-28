@@ -1,67 +1,29 @@
-# Circle Restaurant & Lounge — Menu Website
+# Circle Restaurant & Lounge: Menu Website
 
-A luxury restaurant menu website for **Circle Restaurant & Lounge**, Benin City.
-Built with **Next.js 14** + **Tailwind CSS**.
+The digital menu for **Circle Restaurant & Lounge**, Benin City Mall. Live at [circlebenin.com](https://circlebenin.com).
 
-## Design
+Built with Next.js 14, Tailwind CSS 3 and Motion. See `style_guide.md` for the design system.
 
-- Deep crimson & gold luxury palette sourced from the brand logo
-- Playfair Display + Cormorant Garamond typefaces
-- Animated SVG logo reveal on load
-- Expandable menu items with rich detail panels
-- Sticky category navigation with scroll-spy
-- Full mobile & tablet responsive
-- Grain overlay texture for depth
-- Floating orb atmospheric effects
-
-## Setup
+## Run it
 
 ```bash
-# 1. Install dependencies
 npm install
-
-# 2. Start development server
-npm run dev
-
-# 3. Open in browser
-http://localhost:3000
+npm run dev      # http://localhost:3000
+npm run build && npm start
 ```
 
-## Production Build
+## Editing the menu
 
-```bash
-npm run build
-npm start
-```
+Everything lives in `data/menu.js`.
 
-## Menu Sections
+- **Change a price:** edit the item's `price` (a plain number, e.g. `25000`).
+- **Add a dish:** add `{ id, name, price, desc }` to the right group. Ids must be unique.
+- **Add a photo:** upload it to Cloudinary and set `image` to the Cloudinary URL. The dish moves from the text rows into the photo layout on its own.
+- **Feature a dish near the top:** add `signature: true` (it needs a photo).
+- **Bottle lists:** use `options: [{ name, price }]` instead of `price`. The site shows "from" the lowest price.
 
-1. **Small Plates** — 6 starter dishes
-2. **Soups & Salads** — 4 items
-3. **Main Course** — 6 signature mains
-4. **From The Grill** — 5 grilled items
-5. **Pasta & Rice** — 4 items
-6. **Desserts** — 5 handcrafted desserts
-7. **Signature Cocktails** — 6 bespoke drinks
-8. **Wines & Spirits** — 4 curated selections
+Restaurant details (phone, address, hours) are in the `restaurant` export at the bottom of the same file.
 
-## Customization
+## Images
 
-All menu data lives in `data/menu.js`. Each item supports:
-- `name`, `price`, `shortDesc`, `description`
-- `badge` (e.g. "Chef's Signature", "House Special")
-- `ingredients` array
-- `allergens` array
-- `chefNote` — italic chef quote
-- `pairing` — wine/drink pairing suggestion
-- `dietary` — `"vegetarian"` | `"non-alcoholic"` | null
-- `spice` — `"mild"` | `"medium"` | `"hot"` | null
-
-## Brand Colors
-
-```
-Crimson:    #8B0C2A
-Gold:       #C9A96E
-Dark BG:    #080309
-Cream:      #F2E8DC
-```
+Photos are served from Cloudinary (`dmpulmnb9`). `lib/cloudinary-loader.js` asks Cloudinary for the right size and format for each screen, so pages stay fast on mobile data.
