@@ -64,7 +64,7 @@ export const menuData = [
         items: [
           { id: 'm2', name: 'Asun Jollof Rice', price: 25000, desc: 'Smoky jollof rice with spicy peppered goat meat.', image: img('v1779655030/asun-rice_mrn1ni.jpg'), signature: true },
           { id: 'm1', name: 'Signature Rice', price: 25000, desc: 'Signature rice with fajita sauce, sautéed chicken breast, bell pepper and sweet chilli.' },
-          { id: 'm4', name: 'Circle Platter', price: 25000, desc: 'Yam fries, plantain fries, rice, chicken wings, snail, prawns, puff puff, samosa and spring rolls.' },
+          { id: 'm4', name: 'Circle Platter', price: 70000, desc: 'Yam fries, plantain fries, rice, chicken wings, snail, prawns, puff puff, samosa and spring rolls.' },
         ],
       },
       {
